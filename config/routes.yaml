@@ -1,0 +1,15 @@
+#Route to create/update & get orders.
+order_create:
+  path: /v1
+  controller: App\Controller\ApiController::orders
+  methods: GET|POST|PATCH
+#Route to move delayed orders to delayed_orders table: To be used by task scheduler.
+order_create_delayed:
+  path: /v1/create_delayed
+  controller: App\Controller\DelayedController::create_delayed_orders
+  methods: GET
+#Route to get all delayed orders.
+order_get_delayed:
+  path: /v1/delayed
+  controller: App\Controller\DelayedController::get_delayed_orders
+  methods: GET
